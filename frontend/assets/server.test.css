@@ -1,9 +1,0 @@
-header div.global-header::before {
-    content: "TEST Sever - TEST Sever - TEST Server";
-    color: white;
-    text-align: left;
-    width: 100%;
-    top: 30px;
-    margin-left: 40px;
-    position: absolute;
-}

@@ -1,8 +1,0 @@
-#header div.branding-container::before {
-    content: "TEST Sever - TEST Sever - TEST Server";
-    color: white;
-    text-align: center;
-    width: 100%;
-    top: 10px;
-    position: relative;
-}
