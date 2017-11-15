@@ -1,0 +1,56 @@
+
+<div class="row">
+  <div class="col-sm-12">
+    <h1><%= t('brand.welcome_head') %></h1>
+      <div> <%= t('brand.welcome_message').html_safe %> </div>
+  </div>
+</div>
+
+    <%= render partial: 'shared/search', locals: {:search_url => "/search",
+     :title => t('archive._plural'),
+     :limit_options => [["#{t('actions.search')} #{t('search-limits.all')}",''], 
+            [t('search-limit', :limit => t('search-limits.resources')),'resource'],
+            [t('search-limit', :limit => t('search-limits.digital')),'digital_object']],
+     :field_options => [["#{t('search_results.filter.fullrecord')}",''],
+            ["#{t('search_results.filter.title')}",'title'],
+            ["#{t('search_results.filter.creators')}",'creators_text'],
+           ["#{t('search_results.filter.notes')}", 'notes'] ] } %>
+
+<div class="row">
+  <div class="col-lg-8 col-sm-12">
+      <p>This site provides centralized access to written descriptions (known as finding aids) of hundreds of archival resources 
+      housed at Georgetown University: in the <a href="/repositories/15">Manuscripts</a> Unit, the <a href="/repositories/14">Rare Books</a> Unit 
+      and the <a href="/repositories/12">University Archives</a> in the Booth Family Center for Special Collections, Lauinger Library; 
+      in the <a href="/repositories/13">Woodstock Theological Library</a>, 
+      Lauinger Library; and in the <a href="/repositories/7">Bioethics Research Library Archives</a>, the Kennedy Institute of Ethics, Healy Hall.  
+      New content is added on a regular basis.</p>  
+      <p>You can use this site to locate resources relating to your area(s) of research.  
+      It will also link you to the curatorial staff who oversee the resources so that you can submit 
+      questions or arrange to work with the original materials.</p>
+      <h4>What are archival resources?</h4>
+      <p>The Society of American Archivists' Glossary of Archival and Records Terminology by Richard Pearce-Moses published 
+      in 2005 defines "archives" as: Materials created or received by a person, family, or organization, public or private, 
+      in the conduct of their affairs and preserved because of the enduring value contained in the information they contain or 
+      as evidence of the functions and responsibilities of their creator.  An archival resource can range in size from a single 
+      scrapbook to thousands of folders of institutional records and can include items such as letters, diaries, photographs, 
+      research papers, drafts of literary works, newspaper clippings, audio/visual material, financial records, 
+      meeting minutes, and reports.</p>
+      <h4>What is a finding aid?</h4>
+      <p>A finding aid is a research tool which describes an archival resource and facilitates discovery of information 
+      about specific subjects, people, places, or events within it.  A finding aid can help you determine whether 
+      the resource it describes might be relevant to your information needs.  The level of detail will vary between 
+      finding aids but they generally supply core information such as the size, date span, subject coverage, 
+      and arrangement of resources.  Some will also include an administrative history or biographical note, 
+      scope and content note, and/or inventory of boxes, folders or items.</p>
+      <h4><a href="http://www.library.georgetown.edu/special-collections/using/requests/information">Contact us</a> about: </h4>
+      <ul>
+        <li>questions on archival resources or items within them</li>
+        <li>making an appointment to view original materials</li>
+        <li>reproduction requests</li>
+        <li>materials you are unable to find through the portal</li>
+      </ul>
+  </div>
+  <div class="col-lg-4 gucarroll">
+      <%= image_tag "/assets/CarrollStatue.jpg", :alt => "John Carroll Statue" %>
+  </div>
+</div>

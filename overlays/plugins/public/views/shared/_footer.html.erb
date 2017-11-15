@@ -1,0 +1,28 @@
+<div class="panel-footer">
+  <div class="gulogo branding-container">
+    <a class="gureplogo" href="http://www.library.georgetown.edu/special-collections" title="Booth Family Center for Special Collections">
+        <%= image_tag "/assets/bfcsc-logo-small-inverted.png", :alt => "Booth Family Center for Special Collections Logo" %>
+    </a>
+    <a class="gureplogo" href="http://www.library.georgetown.edu/woodstock" title="Woodstock Theological Library at Georgetown University">
+        <%= image_tag "/assets/woodstock-logo-small-inverted.png", :alt => "Woodstock Theological Library at Georgetown University Logo" %>
+    </a>
+    <a class="gureplogo" href="https://bioethics.georgetown.edu/" title="Bioethics Research Library at Georgetown University">
+        <%= image_tag "/assets/brl-logo-40ht.png", :alt => "Bioethics Research Library at Georgetown University Logo" %>
+    </a>
+  </div>
+  <div class="row">
+    <div class="col-lg-10 col-sm-10 gufoottext">
+        <p>&copy;2017 Georgetown University Library | 
+            <% if AppConfig[:enable_frontend] %>View <a href="<%= AppConfig[:frontend_proxy_url] %>">Staff Interface</a> | <% end %>Visit <a href="http://archivesspace.org">ArchivesSpace.org</a> | <%= ASConstants.VERSION %> 
+            <br/>202.687.7444 
+            <br/><a href="mailto:speccoll@georgetown.edu">speccoll@georgetown.edu</a> 
+            <br/><a href="http://findingaids.library.georgetown.edu">findingaids.library.georgetown.edu</a>
+        </p>
+    </div>
+    <div class="col-lg-2 col-sm-2 gufootlogo">
+        <a href="http://www.georgetown.edu" title="Georgetown University" class="gureplogo">
+            <%= image_tag "/assets/gu-seal.png", :alt => "Georgetown Seal" %>
+        </a>
+    </div>
+  </div>
+</div>

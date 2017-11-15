@@ -1,0 +1,9 @@
+en:
+  brand:
+    title: Georgetown University Archival Resources 
+    home: Home
+    welcome_message: Welcome to the Georgetown University Archival Resources Site
+  archive:
+    _singular: All Archival Resources
+    _plural: All Archival Resources
+    
