@@ -44,9 +44,9 @@ header div.branding-container, footer, footer div.branding-container {
 	width: 100%!important;
 }
 
-header div.branding-container img, footer div.branding-container img {
-    padding-left: 20px;
-    padding-right: 20px;
+#header div.branding-container a, div.panel-footer div.branding-container a {
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 div.gulogo, .gudglogo {
