@@ -141,17 +141,6 @@ div.title-pane div.gu-ask-us {
 .navbar {margin-bottom:0px;} 
 .panel-footer {margin-top: 0px;} 
 
-/*
- * Override lightblue and medblue colors to a standard GU color with appropriate contrast
- */
-.tabbing.nav-pills > li > a {
-  background-color: #004990;
-}
-
-#whats-in-container > h3, a, h3, .facet-group li > .recordnumber, h1, .h1 {
-  color: #004990;
-}
-
 #header a {
   color: white;
 }
