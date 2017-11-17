@@ -6,7 +6,7 @@
     
     # Instance URL's
     AppConfig[:frontend_proxy_url] = "https://staff.findingaids.library.georgetown.edu"
-    AppConfig[:public_proxy_url] = "http://findingaids.library.georgetown.edu"
+    AppConfig[:public_proxy_url] = "https://findingaids.library.georgetown.edu"
     
 ## General Oveerrides
 
