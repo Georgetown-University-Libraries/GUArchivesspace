@@ -44,9 +44,9 @@ div.panel-footer a {
 	text-shadow: none!important;
 }
 
-#header div.branding-container img, div.panel-footer div.branding-container img {
-    padding-left: 20px;
-    padding-right: 20px;
+#header div.branding-container a, div.panel-footer div.branding-container a {
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 #header div.branding-container {
