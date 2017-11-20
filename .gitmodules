@@ -1,0 +1,3 @@
+[submodule "archivesspace"]
+	path = archivesspace
+	url = https://github.com/archivesspace/archivesspace.git

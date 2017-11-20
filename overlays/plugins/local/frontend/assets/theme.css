@@ -1,0 +1,116 @@
+@import url(https://fonts.googleapis.com/css?family=Cabin); 
+@import url(https://fonts.googleapis.com/css?family=Arimo:400,400italic,700,700italic&subset=latin,latin-ext); 
+
+h1, h2, h3, h4, .h1, .h2, .h3, .h4 {
+    font-family: Cabin;
+}
+
+body {
+    font-family: Arimo;
+    letter-spacing: 1px;
+}
+
+header div.branding-container, div.global-container {
+    background-image:url(/assets/dark_Tire_002147.png);
+    background-color: #022349;
+}
+
+footer {
+    background-color: #022349;
+    background-image:url(/assets/dark_Tire_002147.png);
+    background-repeat:repeat;
+	color: white;
+}
+
+footer a {
+	color: #7bace4!important;
+	text-shadow: none!important;
+}
+
+.archives-tree-container .archives-tree li.primary-selected>a {
+  background-color: #b9d9ec;
+}
+
+.nav-list>.active>a, .nav-list>.active>a:hover, .nav-list>.active>a:focus {
+  background-color: #6babe5;
+}
+
+header div.branding-container {
+    padding-top: 58px;
+	padding-bottom: 10px;
+}
+
+header div.branding-container, footer, footer div.branding-container {
+	width: 100%!important;
+}
+
+#header div.branding-container a, div.panel-footer div.branding-container a {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+div.gulogo, .gudglogo {
+	padding-top: 4px;
+}
+
+header div.branding-container h1 {
+	color: white;
+	text-align: center;
+	position: relative;
+	width: 100%;
+	margin-top: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	font-size: 24px;
+}
+
+
+a {
+    color: #022349!important;
+}
+
+.label-info, .badge-info {
+  background-color: #72984b!important;
+}
+
+body {
+  background: #fff url(/assets/linen.png) repeat top left;
+}
+div.gucarroll {
+	text-align: center;
+}
+
+@media (max-width: 810px) {
+    .gureplogo, .gudglogo {
+        display: none;
+    }
+
+    header div.branding-container {
+        text-align: left;
+    }
+}
+
+@media (min-width: 811px) {
+    .gureplogo, .gudglogo {
+        display: inline;
+    }
+    /*
+    header div.branding-container {
+        text-align: center;
+    }
+    */
+}
+
+footer div.branding-container {
+	margin-bottom: 10px;
+    text-align: center;
+}
+
+    
+footer img {
+	width: 70px;
+}
+
+#header div.row {
+    border-bottom: none;
+}
