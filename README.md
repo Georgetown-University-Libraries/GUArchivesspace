@@ -1,15 +1,20 @@
-# ArchivesSpace Branding for Georgetown University Finding Aids
+# Georgetown University Archival Resources - Customization Layer for ArchivesSpace 2.x
 
-![image](https://cloud.githubusercontent.com/assets/1111057/18211430/5f9bf73a-70f2-11e6-8c1f-588d15393248.png)
+This repository contains custom configuraiton and branding enhancements for [ArchivesSpace 2.x](https://archivesspace.org/).
 
-## Georgetown Custom Theme Elements
-https://github.com/Georgetown-University-Libraries/archivesspace-gubranding/releases
+![image](https://user-images.githubusercontent.com/1111057/33036441-3a7d6e80-cde3-11e7-8a22-da38b3738e5e.png)
 
-## Theming ArchivesSpace
+## Release Summary
+Here is a [release summary](https://github.com/Georgetown-University-Libraries/GUArchivesspace/releases) for this repository
 
-https://github.com/archivesspace/archivesspace/wiki/Customizing-&-Theming-ArchivesSpace
+## Build Process Summary (TBD)
+This repository utilizes the ArchivesSpace plugin infrasture for changes wherever possible.
 
-Thanks to https://github.com/usclibrariesweb/archivesspace-branding for posting a sample implementation.
+Additionally, some changes are integrated into an ArchivesSpace build.
+
+## Configuration Changes
+
+Here is a summary of [local configuration changes](config.rb.md) 
 
 ***
 [![Georgetown University Library IT Code Repositories](https://raw.githubusercontent.com/Georgetown-University-Libraries/georgetown-university-libraries.github.io/master/LIT-logo-small.png)Georgetown University Library IT Code Repositories](http://georgetown-university-libraries.github.io/)
