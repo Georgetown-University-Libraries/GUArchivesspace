@@ -629,27 +629,27 @@ AppConfig[:pui_page_actions_request] = false
 
 ##Aeon Fulfillment Plugin
 AppConfig[:aeon_fulfillment] = {
-	"BRL" => {
+	"brl" => {
 		:aeon_web_url => "https://aeon.library.georgetown.edu/aeon/aeon.dll",
 		:aeon_return_link_label => "Return to ArchivesSpace",
 		:aeon_external_system_id => "ArchivesSpace"
 	},
-	"GTA" => {
+	"gta" => {
 		:aeon_web_url => "https://aeon.library.georgetown.edu/aeon/aeon.dll",
 		:aeon_return_link_label => "Return to ArchivesSpace",
 		:aeon_external_system_id => "ArchivesSpace"
 	},
-	"Woodstock" => {
+	"woodstock" => {
 		:aeon_web_url => "https://aeon.library.georgetown.edu/aeon/aeon.dll",
 		:aeon_return_link_label => "Return to ArchivesSpace",
 		:aeon_external_system_id => "ArchivesSpace"
 	},
-	"GTRB" => {
+	"gtrb" => {
 		:aeon_web_url => "https://aeon.library.georgetown.edu/aeon/aeon.dll",
 		:aeon_return_link_label => "Return to ArchivesSpace",
 		:aeon_external_system_id => "ArchivesSpace"
 	},
-	"GTM" => {
+	"gtm" => {
 		:aeon_web_url => "https://aeon.library.georgetown.edu/aeon/aeon.dll",
 		:aeon_return_link_label => "Return to ArchivesSpace",
 		:aeon_external_system_id => "ArchivesSpace"
