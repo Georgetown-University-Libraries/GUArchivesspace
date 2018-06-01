@@ -630,27 +630,27 @@ AppConfig[:pui_page_actions_request] = false
 ##Aeon Fulfillment Plugin
 AppConfig[:aeon_fulfillment] = {
 	"brl" => {
-		:aeon_web_url => "https://aeon.library.georgetown.edu/aeon/aeon.dll",
+		:aeon_web_url => "https://aeon.library.georgetown.edu/logon/",
 		:aeon_return_link_label => "Return to ArchivesSpace",
 		:aeon_external_system_id => "ArchivesSpace"
 	},
 	"gta" => {
-		:aeon_web_url => "https://aeon.library.georgetown.edu/aeon/aeon.dll",
+		:aeon_web_url => "https://aeon.library.georgetown.edu/logon/",
 		:aeon_return_link_label => "Return to ArchivesSpace",
 		:aeon_external_system_id => "ArchivesSpace"
 	},
 	"woodstock" => {
-		:aeon_web_url => "https://aeon.library.georgetown.edu/aeon/aeon.dll",
+		:aeon_web_url => "https://aeon.library.georgetown.edu/logon/",
 		:aeon_return_link_label => "Return to ArchivesSpace",
 		:aeon_external_system_id => "ArchivesSpace"
 	},
 	"gtrb" => {
-		:aeon_web_url => "https://aeon.library.georgetown.edu/aeon/aeon.dll",
+		:aeon_web_url => "https://aeon.library.georgetown.edu/logon/",
 		:aeon_return_link_label => "Return to ArchivesSpace",
 		:aeon_external_system_id => "ArchivesSpace"
 	},
 	"gtm" => {
-		:aeon_web_url => "https://aeon.library.georgetown.edu/aeon/aeon.dll",
+		:aeon_web_url => "https://aeon.library.georgetown.edu/logon/",
 		:aeon_return_link_label => "Return to ArchivesSpace",
 		:aeon_external_system_id => "ArchivesSpace"
 	}
