@@ -645,3 +645,5 @@ AppConfig[:aeon_fulfillment] = {
 		:aeon_external_system_id => "ArchivesSpace"
 	}
 }
+
+AppConfig[:aeon_fulfillment_record_types] = ['archival_object', 'accession', 'collection']
