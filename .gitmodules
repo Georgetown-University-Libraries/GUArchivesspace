@@ -4,3 +4,6 @@
 [submodule "overlays/plugins/aeon_fulfillment"]
 	path = overlays/plugins/aeon_fulfillment
 	url = https://github.com/AtlasSystems/ArchivesSpace-Aeon-Fulfillment-Plugin
+[submodule "overlays/plugins/aspace_import_excel"]
+	path = overlays/plugins/aspace_import_excel
+	url = https://github.com/harvard-library/aspace-import-excel
