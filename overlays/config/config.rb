@@ -67,7 +67,7 @@ AppConfig[:backend_log_level] = "info"
 #AppConfig[:locale] = :en
 #
 ## Plug-ins to load. They will load in the order specified
-#AppConfig[:plugins] = ['local',  'lcnaf']
+AppConfig[:plugins] = ['local',  'aeon_fulfillment']
 #
 ## The number of concurrent threads available to run background jobs
 ## Introduced for AR-1619 - long running jobs were blocking the queue
@@ -583,12 +583,13 @@ AppConfig[:pui_page_actions_request] = false
 ##   # 'erb_partial' returns the path to an erb template from which the action will be rendered
 ##   'erb_partial' => 'shared/my_special_action',
 ## }
-AppConfig[:pui_page_custom_actions] << {
-   'record_type' => ['resource', 'archival_object', 'accession', 'digital_object'], # the jsonmodel type to show for
-   'label' => 'Request', # the I18n path for the action button
-   'icon' => 'fa-bullhorn', # the font-awesome icon CSS class
-   'url_proc' => proc {|record| 'https://www.library.georgetown.edu/special-collections/using/requests/information?uri='+record.uri},
-}
+#Removing to accommodate Aeon request button
+#AppConfig[:pui_page_custom_actions] << {
+#   'record_type' => ['resource', 'archival_object', 'accession', 'digital_object'], # the jsonmodel type to show for
+#   'label' => 'Request', # the I18n path for the action button
+#   'icon' => 'fa-bullhorn', # the font-awesome icon CSS class
+#   'url_proc' => proc {|record| 'https://www.library.georgetown.edu/special-collections/using/requests/information?uri='+record.uri},
+#}
 #
 ## PUI email settings (logs emails when disabled)
 #AppConfig[:pui_email_enabled] = false
@@ -625,3 +626,22 @@ AppConfig[:pui_page_custom_actions] << {
 #
 ##The number of characters to truncate before showing the 'Read More' link on notes
 #AppConfig[:pui_readmore_max_characters] = 450
+
+##Aeon Fulfillment Plugin
+AppConfig[:aeon_fulfillment] = {
+	"gta" => {
+		:aeon_web_url => "https://aeon.library.georgetown.edu/logon/",
+		:aeon_return_link_label => "Return to ArchivesSpace",
+		:aeon_external_system_id => "ArchivesSpace"
+	},
+	"gtrb" => {
+		:aeon_web_url => "https://aeon.library.georgetown.edu/logon/",
+		:aeon_return_link_label => "Return to ArchivesSpace",
+		:aeon_external_system_id => "ArchivesSpace"
+	},
+	"gtm" => {
+		:aeon_web_url => "https://aeon.library.georgetown.edu/logon/",
+		:aeon_return_link_label => "Return to ArchivesSpace",
+		:aeon_external_system_id => "ArchivesSpace"
+	}
+}
