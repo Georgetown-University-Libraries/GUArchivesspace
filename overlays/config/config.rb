@@ -632,16 +632,16 @@ AppConfig[:aeon_fulfillment] = {
 	"gta" => {
 		:aeon_web_url => "https://aeon.library.georgetown.edu/logon/",
 		:aeon_return_link_label => "Return to ArchivesSpace",
-		:aeon_external_system_id => "ArchivesSpace"
+		:aeon_external_system_id => "GU_AS"
 	},
 	"gtrb" => {
 		:aeon_web_url => "https://aeon.library.georgetown.edu/logon/",
 		:aeon_return_link_label => "Return to ArchivesSpace",
-		:aeon_external_system_id => "ArchivesSpace"
+		:aeon_external_system_id => "GU_AS"
 	},
 	"gtm" => {
 		:aeon_web_url => "https://aeon.library.georgetown.edu/logon/",
 		:aeon_return_link_label => "Return to ArchivesSpace",
-		:aeon_external_system_id => "ArchivesSpace"
+		:aeon_external_system_id => "GU_AS"
 	}
 }
