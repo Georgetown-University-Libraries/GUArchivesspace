@@ -92,7 +92,7 @@ AppConfig[:backend_log_level] = "info"
 #AppConfig[:locale] = :en
 #
 ## Plug-ins to load. They will load in the order specified
-AppConfig[:plugins] = ['local',  'aspace-import-excel']
+AppConfig[:plugins] = ['local',  'aspace-import-excel', 'lcnaf']
 #
 ## The number of concurrent threads available to run background jobs
 ## Introduced for AR-1619 - long running jobs were blocking the queue
