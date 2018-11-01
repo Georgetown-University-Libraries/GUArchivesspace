@@ -85,6 +85,12 @@ AppConfig[:backend_log_level] = "info"
 ##    }
 ## Configuring search operator to be AND by default - ANW-427
 #AppConfig[:solr_params] = { "op" => "AND" }
+#GU Custom
+AppConfig[:solr_params] = {
+        "df" => "fullrecord",
+        "pf" => "four_part_id^50",
+        "qf" => "title^25 four_part_id^50 fullrecord",
+        "bq" => "primary_type:resource^100 primary_type:accession^100 primary_type:subject^50 primary_type:agent_person^50 primary_type:agent_corporate_entity^30 primary_type:agent_family^30" }
 #
 ## Set the application's language (see the .yml files in
 ## https://github.com/archivesspace/archivesspace/tree/master/common/locales for
