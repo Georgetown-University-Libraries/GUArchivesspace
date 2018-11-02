@@ -14,7 +14,7 @@
 #
 ## Set your database name and credentials here.  Example:
 ##
-##  AppConfig[:db_url] = "jdbc:mysql://127.0.0.1:3306/aspace?useUnicode=true&characterEncoding=UTF-8&user=as&password=as123"
+##AppConfig[:db_url] = "jdbc:mysql://127.0.0.1:3306/aspace?useUnicode=true&characterEncoding=UTF-8&user=as&password=as123"
 ##
 #AppConfig[:db_url] = proc { AppConfig.demo_db_url }
 AppConfig[:db_url] = "AS_DB"
@@ -51,15 +51,46 @@ AppConfig[:db_url] = "AS_DB"
 ## set it to something else below.
 #AppConfig[:docs_url] = "http://localhost:8888"
 #
+## Logging. By default, this will be output on the screen while the archivesspace
+## command is running. When running as a daemon/service, this is put into a
+## file in logs/archivesspace.out. You can change this file by changing the log
+## value to a filepath that archivesspace has write access to.
+#AppConfig[:frontend_log] = "default"
+## Log level for the frontend, values: (everything) debug, info, warn, error, fatal (severe only)
+#AppConfig[:frontend_log_level] = "debug"
 ## Log level for the backend, values: (everything) debug, info, warn, error, fatal (severe only)
+#AppConfig[:backend_log] = "default"
 #AppConfig[:backend_log_level] = "debug"
 AppConfig[:backend_log_level] = "info"
+#
+## Set to true to log all SQL statements.  Note that this will have a performance
+## impact!
+#AppConfig[:db_debug_log] = false
+## Set to true if you have enabled MySQL binary logging
+#AppConfig[:mysql_binlog] = false
 #
 ## By default, Solr backups will run at midnight.  See https://crontab.guru/ for
 ## information about the schedule syntax.
 #AppConfig[:solr_backup_schedule] = "0 * * * *"
 #AppConfig[:solr_backup_number_to_keep] = 1
 #AppConfig[:solr_backup_directory] = proc { File.join(AppConfig[:data_directory], "solr_backups") }
+## add default solr params, i.e. use AND for search: AppConfig[:solr_params] = { "op" => "AND" }
+## Another example below sets the boost query value (bq) to boost the relevancy for the query string in the title,
+## sets the phrase fields parameter (pf) to boost the relevancy for the title when the query terms are in close proximity to
+## each other, and sets the phrase slop (ps) parameter for the pf parameter to indicate how close the proximity should be
+##  AppConfig[:solr_params] = {
+##      "bq" => proc { "title:\"#{@query_string}\"*" },
+##      "pf" => 'title^10',
+##      "ps" => 0,
+##    }
+## Configuring search operator to be AND by default - ANW-427
+#AppConfig[:solr_params] = { "op" => "AND" }
+#GU Custom
+AppConfig[:solr_params] = {
+        "df" => "fullrecord",
+        "pf" => "four_part_id^50",
+        "qf" => "title^25 four_part_id^50 fullrecord",
+        "bq" => "primary_type:resource^100 primary_type:accession^100 primary_type:subject^50 primary_type:agent_person^50 primary_type:agent_corporate_entity^30 primary_type:agent_family^30" }
 #
 ## Set the application's language (see the .yml files in
 ## https://github.com/archivesspace/archivesspace/tree/master/common/locales for
@@ -67,7 +98,7 @@ AppConfig[:backend_log_level] = "info"
 #AppConfig[:locale] = :en
 #
 ## Plug-ins to load. They will load in the order specified
-#AppConfig[:plugins] = ['local',  'lcnaf']
+AppConfig[:plugins] = ['local',  'aspace-import-excel', 'lcnaf']
 #
 ## The number of concurrent threads available to run background jobs
 ## Introduced for AR-1619 - long running jobs were blocking the queue
@@ -125,6 +156,8 @@ AppConfig[:oai_sets] = {
   }
 }
 #
+#AppConfig[:oai_ead_options] = {}
+## alternate example:  AppConfig[:oai_ead_options] = { :include_daos => true, :use_numbered_c_tags => true }
 #
 ###
 ### Other less commonly changed settings are below
@@ -173,16 +206,22 @@ AppConfig[:indexer_records_per_thread] = 250
 AppConfig[:pui_indexer_records_per_thread] = 250
 #AppConfig[:pui_indexer_thread_count] = 1
 #
+#AppConfig[:index_state_class] = 'IndexState' # set to 'IndexStateS3' for amazon s3
+## # store indexer state in amazon s3 (optional)
+## # NOTE: s3 charges for read / update requests and the pui indexer is continually
+## # writing to state files so you may want to increase pui_indexing_frequency_seconds
+## AppConfig[:index_state_s3] = {
+##   region: ENV.fetch("AWS_REGION"),
+##   aws_access_key_id: ENV.fetch("AWS_ACCESS_KEY_ID"),
+##   aws_secret_access_key: ENV.fetch("AWS_SECRET_ACCESS_KEY"),
+##   bucket: ENV.fetch("AWS_ASPACE_BUCKET"),
+##   prefix: proc { "#{AppConfig[:cookie_prefix]}_" },
+## }
+#
 #AppConfig[:allow_other_unmapped] = false
 #
 #AppConfig[:db_url_redacted] = proc { AppConfig[:db_url].gsub(/(user|password)=(.*?)(&|$)/, '\1=[REDACTED]\3') }
 #
-## Set to true to log all SQL statements.  Note that this will have a performance
-## impact!
-#AppConfig[:db_debug_log] = false
-#
-## Set to true if you have enabled MySQL binary logging
-#AppConfig[:mysql_binlog] = false
 #
 #AppConfig[:demo_db_backup_schedule] = "0 4 * * *"
 #
@@ -315,9 +354,10 @@ AppConfig[:allow_user_registration] = false
 ## this check here. Do so at your own peril.
 #AppConfig[:ignore_schema_info_check] = false
 #
-## This is a URL that points to some demo data that can be used for testing,
-## teaching, etc. To use this, set an OS environment variable of ASPACE_DEMO = true
-#AppConfig[:demo_data_url] = "https://s3-us-west-2.amazonaws.com/archivesspacedemo/latest-demo-data.zip"
+## To use this, set an OS environment variable of ASPACE_DEMO = true
+## This is the configuration variable to point to some demo data for use in testing,
+## teaching, etc.
+#AppConfig[:demo_data_url] = ""
 #
 ## Expose external ids in the frontend
 #AppConfig[:show_external_ids] = false
@@ -329,6 +369,26 @@ AppConfig[:allow_user_registration] = false
 ## you're using that
 #AppConfig[:jetty_response_buffer_size_bytes] = 64 * 1024
 #AppConfig[:jetty_request_buffer_size_bytes] = 64 * 1024
+#
+## Container management configuration fields
+## :container_management_barcode_length defines global and repo-level barcode validations
+## (validating on length only).  Barcodes that have either no value, or a value between :min
+## and :max, will validate on save.  Set global constraints via :system_default, and use
+## the repo_code value for repository-level constraints.  Note that :system_default will
+## always inherit down its values when possible.
+##
+## Example:
+## AppConfig[:container_management_barcode_length] = {:system_default => {:min => 5, :max => 10}, 'repo' => {:min => 9, :max => 12}, 'other_repo' => {:min => 9, :max => 9} }
+#
+## :container_management_extent_calculator globally defines the behavior of the exent calculator.
+## Use :report_volume (true/false) to define whether space should be reported in cubic
+## or linear dimensions.
+## Use :unit (:feet, :inches, :meters, :centimeters) to define the unit which the calculator
+## reports extents in.
+## Use :decimal_places to define how many decimal places the calculator should return.
+##
+## Example:
+## AppConfig[:container_management_extent_calculator] = { :report_volume => true, :unit => :feet, :decimal_places => 3 }
 #
 ## Define the fields for a record type that are inherited from ancestors
 ## if they don't have a value in the record itself.
@@ -488,7 +548,7 @@ AppConfig[:record_inheritance] = {
 #
 #AppConfig[:pui_search_results_page_size] = 10
 AppConfig[:pui_search_results_page_size] = 20
-#AppConfig[:pui_branding_img] = 'ASpaceOrgHome.jpg'
+#AppConfig[:pui_branding_img] = 'archivesspace.small.png'
 #AppConfig[:pui_block_referrer] = true # patron privacy; blocks full 'referer' when going outside the domain
 #AppConfig[:pui_enable_staff_link] = true # attempt to add a link back to the staff interface
 #
@@ -517,10 +577,14 @@ AppConfig[:pui_hide][:classifications] = true
 ## can be overriden at repository level below (e.g.:  AppConfig[:repos][{repo_code}][:hide][:counts] = true
 #AppConfig[:pui_hide][:resource_badge] = false
 #AppConfig[:pui_hide][:record_badge] = true # hide by default
+#AppConfig[:pui_hide][:digital_object_badge] = false
+#AppConfig[:pui_hide][:accession_badge] = false
 #AppConfig[:pui_hide][:subject_badge] = false
 #AppConfig[:pui_hide][:agent_badge] = false
 #AppConfig[:pui_hide][:classification_badge] = false
 #AppConfig[:pui_hide][:counts] = false
+## The following determines globally whether the 'container inventory' navigation tab/pill is hidden on resource/collection page
+#AppConfig[:pui_hide][:container_inventory] = false
 ## Other usage examples:
 ## Don't display the accession ("unprocessed material") link on the main navigation menu
 ## AppConfig[:pui_hide][:accessions] = true
@@ -529,7 +593,7 @@ AppConfig[:pui_hide][:classifications] = true
 #AppConfig[:pui_requests_permitted_for_types] = [:resource, :archival_object, :accession, :digital_object, :digital_object_component]
 #AppConfig[:pui_requests_permitted_for_containers_only] = false # set to 'true' if you want to disable if there is no top container
 #
-## Repository-specific examples.  We are using the imaginary repository code of 'foo'.  Note the lower-case
+## Repository-specific examples.  Replace {repo_code} with your repository code, i.e. 'foo' - note the lower-case
 #AppConfig[:pui_repos] = {}
 ## Example:
 ## AppConfig[:pui_repos][{repo_code}] = {}
@@ -600,6 +664,9 @@ AppConfig[:pui_page_custom_actions] << {
 ##AppConfig[:pui_request_email_fallback_to_address] = 'testing@example.com'
 ## 'pui_request_email_fallback_from_address' the 'from' email address for repositories that don't define their own email
 ##AppConfig[:pui_request_email_fallback_from_address] = 'testing@example.com'
+#
+## use the repository record email address for requests (overrides config email)
+#AppConfig[:pui_request_use_repo_email] = false
 #
 ## Example sendmail configuration:
 ## AppConfig[:pui_email_delivery_method] = :sendmail

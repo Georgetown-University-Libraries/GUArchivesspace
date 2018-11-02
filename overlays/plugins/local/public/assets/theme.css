@@ -145,3 +145,6 @@ div.title-pane div.gu-ask-us {
   color: white;
 }
 
+div.physloc {
+  display:none;
+}

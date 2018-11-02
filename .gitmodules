@@ -1,3 +1,6 @@
 [submodule "archivesspace"]
 	path = archivesspace
 	url = https://github.com/archivesspace/archivesspace.git
+[submodule "overlays/plugins/aspace-import-excel"]
+	path = overlays/plugins/aspace-import-excel
+	url = https://github.com/harvard-library/aspace-import-excel

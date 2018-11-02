@@ -1,7 +1,7 @@
 <div class="container footer">
    <div class="row">
       <div class="col-md-12">
-        <p>&copy;2017 Georgetown University Library | 
+        <p>&copy;2018 Georgetown University Library | 
             <% if AppConfig[:enable_public] and not proxy_localhost? %>View <a href="<%= AppConfig[:public_proxy_url] %>">Public Interface</a> | <% end %>Visit <a href="https://archivesspace.org">ArchivesSpace.org</a> | <%= ASConstants.VERSION %> |<% if AppConfig[:feedback_url] && !AppConfig[:feedback_url].blank? %> <a id='aspaceFeedbackLink' href='https://archivesspace.org/feedback' target='_blank'>Send Feedback or Report a Problem</a> <% end %>
         </p>    
    </div>
