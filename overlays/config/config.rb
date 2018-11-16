@@ -90,7 +90,7 @@ AppConfig[:solr_params] = {
         "df" => "fullrecord",
         "pf" => "four_part_id^50",
         "qf" => "title^25 four_part_id^50 fullrecord",
-        "bq" => "primary_type:resource^100 primary_type:accession^100 primary_type:subject^50 primary_type:agent_person^50 primary_type:agent_corporate_entity^30 primary_type:agent_family^30" }
+        "bq" => "primary_type:resource^100 primary_type:accession^100 primary_type:digital_object^100 primary_type:subject^50 primary_type:agent_person^50 primary_type:agent_corporate_entity^30 primary_type:agent_family^30" }
 #
 ## Set the application's language (see the .yml files in
 ## https://github.com/archivesspace/archivesspace/tree/master/common/locales for
@@ -149,7 +149,7 @@ AppConfig[:oai_sets] = {
     :repo_codes => ['Woodstock'],
     :description => "Woodstock",
   },
-  
+
   'repository_set' => {
     :repo_codes => ['GTA','GTM','GTRB','BRL','Woodstock'],
     :description => "A set of one or more repositories",
@@ -565,7 +565,6 @@ AppConfig[:pui_search_results_page_size] = 20
 #AppConfig[:pui_hide][:repositories] = false
 #AppConfig[:pui_hide][:resources] = false
 #AppConfig[:pui_hide][:digital_objects] = false
-AppConfig[:pui_hide][:digital_objects] = true
 #AppConfig[:pui_hide][:accessions] = false
 AppConfig[:pui_hide][:accessions] = true
 #AppConfig[:pui_hide][:subjects] = false
