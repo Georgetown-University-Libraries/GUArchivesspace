@@ -58,10 +58,11 @@ AppConfig[:db_url] = "AS_DB"
 #AppConfig[:frontend_log] = "default"
 ## Log level for the frontend, values: (everything) debug, info, warn, error, fatal (severe only)
 #AppConfig[:frontend_log_level] = "debug"
+AppConfig[:frontend_log_level] = "warn"
 ## Log level for the backend, values: (everything) debug, info, warn, error, fatal (severe only)
 #AppConfig[:backend_log] = "default"
 #AppConfig[:backend_log_level] = "debug"
-AppConfig[:backend_log_level] = "info"
+AppConfig[:backend_log_level] = "warn"
 #
 ## Set to true to log all SQL statements.  Note that this will have a performance
 ## impact!
