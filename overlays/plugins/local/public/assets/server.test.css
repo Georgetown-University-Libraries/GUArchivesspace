@@ -1,5 +1,5 @@
 #header div.branding-container::before {
-    content: "TEST Sever - TEST Sever - TEST Server";
+    content: "TEST Server - TEST Server - TEST Server";
     color: white;
     text-align: center;
     width: 100%;
